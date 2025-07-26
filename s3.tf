@@ -3,7 +3,7 @@ resource "random_id" "suffix" {
 }
 
 resource "aws_s3_bucket" "artifact_store" {
-  bucket        = "my-codepipeline-artifact-bucket-${random_id.suffix.hex}"
+  bucket        = "my-newcodepipeline-artifact-bucket-${random_id.suffix.hex}"
   force_destroy = true
 
   tags = {
