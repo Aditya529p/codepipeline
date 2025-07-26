@@ -1,4 +1,4 @@
- # Step 1: Create a VPC
+# Step 1: Create a VPC
 resource "aws_vpc" "myvpc" {
   cidr_block = "10.0.0.0/16"
 
@@ -9,9 +9,9 @@ resource "aws_vpc" "myvpc" {
 
 # Step 2: Create a Public Subnet in eu-north-1a
 resource "aws_subnet" "PublicSubnet" {
-  vpc_id            = "vpc-0a1234567890b1234"
-  cidr_block        = "10.0.1.0/24"
-  
+  vpc_id                  = aws_vpc.myvpc.id
+  cidr_block              = "10.0.1.0/24"
+  availability_zone       = "eu-north-1a"
   map_public_ip_on_launch = true
 
   tags = {
@@ -21,9 +21,9 @@ resource "aws_subnet" "PublicSubnet" {
 
 # Step 3: Create a Private Subnet in eu-north-1b
 resource "aws_subnet" "PrivSubnet" {
-  vpc_id            = "vpc-0a1234567890b1234"
+  vpc_id            = aws_vpc.myvpc.id
   cidr_block        = "10.0.2.0/24"
-  
+  availability_zone = "eu-north-1b"
 
   tags = {
     Name = "PrivateSubnet"
@@ -32,7 +32,7 @@ resource "aws_subnet" "PrivSubnet" {
 
 # Step 4: Create Internet Gateway
 resource "aws_internet_gateway" "myIgw" {
-  vpc_id = "vpc-0a1234567890b1234"
+  vpc_id = aws_vpc.myvpc.id
 
   tags = {
     Name = "MyIGW"
@@ -41,7 +41,7 @@ resource "aws_internet_gateway" "myIgw" {
 
 # Step 5: Create Route Table for Public Subnet
 resource "aws_route_table" "PublicRT" {
-  vpc_id = "vpc-0a1234567890b1234"
+  vpc_id = aws_vpc.myvpc.id
 
   route {
     cidr_block = "0.0.0.0/0"
