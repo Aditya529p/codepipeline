@@ -1,5 +1,5 @@
 resource "aws_iam_role" "codebuild_service_role" {
-  name = "codebuild-service-role"
+  name = "new-codebuild-service-role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
