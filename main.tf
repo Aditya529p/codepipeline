@@ -14,7 +14,7 @@ resource "aws_s3_bucket" "artifact_store" {
 
 # IAM role for CodePipeline
 resource "aws_iam_role" "codepipeline_role" {
-  name = "codepipeline-role"
+  name = "codep-role-aditya8515555"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
