@@ -1,5 +1,5 @@
 resource "aws_codedeploy_app" "my_app" {
-  name = "MyCodeDeployApp"
+  name = "MyCodeDeployApp-new"
   compute_platform = "Server"
 }
 
