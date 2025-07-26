@@ -1,3 +1,7 @@
+provider "aws"{
+  region = "ap-south-1"
+}
+
 variable "github_token" {
   description = "GitHub OAuth token"
   type        = string
