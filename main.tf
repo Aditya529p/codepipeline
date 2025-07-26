@@ -9,7 +9,7 @@ variable "github_token" {
 }
 
 resource "aws_s3_bucket" "artifact_store" {
-  bucket = "my-artifact-bucket-unique-name-1234" # change to a unique bucket name
+  bucket = "unique-bucket-aws-35549827"
 }
 
 # IAM role for CodePipeline
