@@ -2,19 +2,22 @@ resource "aws_iam_role" "codebuild_service_role" {
   name = "codebuild-service-role-92275288"
 
   assume_role_policy = jsonencode({
-    Version = "2012-10-17",
-    Statement = [
-      {
-        Effect = "Allow",
-        Principal = {
-          Service = "codebuild.amazonaws.com"
-        },
-        Action = "sts:AssumeRole"
-      }
-    ]
-  })
+   {
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "autoscaling:*",
+        "ec2:*",
+        "codedeploy:*",
+        "s3:*",
+        "cloudwatch:*"
+      ],
+      "Resource": "*"
+    }
+  ]
 }
-
 resource "random_string" "suffix" {
   length  = 5
   upper   = false
