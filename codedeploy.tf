@@ -1,5 +1,5 @@
 resource "aws_codedeploy_app" "my_app" {
-  name             = "MyCodeDeployApp-${random_string.suffix.result}"  # Unique name
+  name             = "MyCodeDeployApp6666222"
   compute_platform = "Server"
 }
 
